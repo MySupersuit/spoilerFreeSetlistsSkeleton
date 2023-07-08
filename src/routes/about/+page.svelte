@@ -3,24 +3,26 @@
 	<meta name="description" content="About this app" />
 </svelte:head>
 
-<div class="text-column">
+<div class="text-column flex flex-col gap-4 text-md">
 	<h1>About this app</h1>
 
 	<p>
-		This is a <a href="https://kit.svelte.dev">SvelteKit</a> app. You can make your own by typing the
-		following into your command line and following the prompts:
-	</p>
-
-	<pre>npm create svelte@latest</pre>
-
-	<p>
-		The page you're looking at is purely static HTML, with no client-side interactivity needed.
-		Because of that, we don't need to load any JavaScript. Try viewing the page's source, or opening
-		the devtools network panel and reloading.
+		This app takes a band's 20 most recent gigs and lists, in random order, the 20 most played songs in those gigs.
+		It might be useful when you want to know roughly the songs that'll be played, but you don't want to ruin the order / opening / encore songs.
 	</p>
 
 	<p>
-		The <a href="/sverdle">Sverdle</a> page illustrates SvelteKit's data loading and form handling. Try
-		using it with JavaScript disabled!
+		All data comes from <a href="https://api.setlist.fm/docs/1.0/index.html">setlist.fm's API</a>
 	</p>
+
+	<p>
+		Possible improvments on the way
+	</p>
+
+	<ul>
+		<li>- Spotify integration (though other apps already do this)</li>
+		<li>- Recent big artists (so you don't have to think of someone to type in)</li>
+		<li>- Better UI (obvs)</li>
+		<li>- More info about the recent gigs? List of em + dates + next ones?</li>
+	</ul>
 </div>
