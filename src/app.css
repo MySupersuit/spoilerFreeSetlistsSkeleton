@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: cabin-bold;
+  src: url(./lib/fonts/cabin-bold-ttf.ttf);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: cabin;
+  src: url(./lib/fonts/cabin-regular.ttf);
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+h3 {
+  font-size: 16px;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: cabin;
+}
+
+.text-bold {
+	font-family: cabin-bold;
+}
+
+.main {
+flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  width: 100%;
+  max-width: 64rem;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+}
+
+.searchbox__border {
+  border-radius: 15px;
+  border: 5px solid rgba(0,0,0,0.2);
+  overflow: hidden;
+}
+
+.searchbox__box {
+  height: 45px;
+  font-size: 18px;
+  width: 100%;
+  padding-left: 10px;
+  outline-width: 0;
+  background-color: #fafafa;
+
+}
+
+.searchbox__button {
+  width: 75px;
+  background: #85b146;
+  background-image: url(./lib/images/sfm-search-icon-white.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.bg-off-white {
+  background-color: #fafafa;
+}
