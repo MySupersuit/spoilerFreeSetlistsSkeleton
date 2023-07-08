@@ -5,7 +5,7 @@ export async function GET({ params }) {
 	let url = `https://api.setlist.fm/rest/1.0/search/artists?sort=relevance&artistName=${term}`;
 
   console.log('url', url);
-	console.log('api', API_KEY);
+	console.log('api s', API_KEY);
 
 	const response = await fetch(url, {
 		headers: {
