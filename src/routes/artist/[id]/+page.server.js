@@ -11,7 +11,7 @@ export async function load({ params }) {
 
 function getUrl(id) {
 	if (!dev) {
-		return 'tbd';
+		return `https://vercel.com/mysupersuit/spoiler-free-setlist-fm/api.setlist/${id}`;
 	} else {
 		return `http://localhost:5173/api/setlist/${id}`;
 	}
