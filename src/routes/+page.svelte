@@ -38,8 +38,7 @@
 
 		searchPerformed = true;
 		searching = false;
-		searchResults = data.artists;
-		return data.artists;
+		searchResults = data.artists.slice(0, 5);
 	}
 </script>
 
@@ -48,11 +47,11 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<section>
-	<div class="flex flex-col mt-20 mx-5 justify-center">
+<main class="main flex flex-1 dry-cleaning-background">
+	<div class="flex flex-col flex-1 justify-center pb-20">
 		<Search on:performSearch={performSearch} />
 
-		<div class="mt-10">
+		<div class="mt-6">
 			{#if showLoading}
 				Loading...
 			{:else if searchError}
@@ -62,4 +61,4 @@
 			{/if}
 		</div>
 	</div>
-</section>
+</main>

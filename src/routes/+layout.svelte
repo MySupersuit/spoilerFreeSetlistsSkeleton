@@ -3,12 +3,10 @@
 	import Header from './Header.svelte';
 </script>
 
-<div class="app">
+<div class="app flex flex-col">
 	<Header />
 
-	<main class="main">
-		<slot />
-	</main>
+	<slot />
 
 	<footer class="footer">
 		<p>

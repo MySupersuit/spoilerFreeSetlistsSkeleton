@@ -30,21 +30,11 @@ h3 {
   flex-direction: column;
   min-height: 100vh;
   font-family: cabin;
+  background: #fafafa;
 }
 
 .text-bold {
 	font-family: cabin-bold;
-}
-
-.main {
-flex: 1;
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  width: 100%;
-  max-width: 64rem;
-  margin: 0 auto;
-  box-sizing: border-box;
 }
 
 .footer {
@@ -53,6 +43,7 @@ flex: 1;
   justify-content: center;
   align-items: center;
   padding: 12px;
+  background-color: #fafafa;
 }
 
 .searchbox__border {
@@ -81,4 +72,38 @@ flex: 1;
 
 .bg-off-white {
   background-color: #fafafa;
+}
+
+.hoverable-list-item {
+  text-decoration: none;
+  color: #000;
+  display: block;
+  font-size: 25px;
+
+  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+  -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+  transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+
+.hoverable-list-item:last-child {
+  border-bottom: none;
+}
+
+.hoverable-list-item:hover {
+  font-size: 30px;
+  background: #f0f0f0;
+}
+
+.dry-cleaning-background {
+  /* position: absolute; */
+  /* top:0; */
+  /* left:0; */
+  max-width: 100%;
+  height: auto;
+  background-image: url(./lib/images/20230218150304819.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }

@@ -3,8 +3,10 @@
 	export let searchResults;
 </script>
 
-<div class="flex flex-col mx-18">
-	{#each searchResults as result}
-		<Result {result} />
-	{/each}
-</div>
+{#if searchResults.length > 0}
+	<div class="flex flex-col max-w-xl m-auto bg-off-white rounded-lg p-3">
+		{#each searchResults as result}
+			<Result {result} />
+		{/each}
+	</div>
+{/if}
