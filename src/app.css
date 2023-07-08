@@ -78,7 +78,7 @@ h3 {
   text-decoration: none;
   color: #000;
   display: block;
-  font-size: 25px;
+  font-size: 20px;
 
   -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
   -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
@@ -92,7 +92,7 @@ h3 {
 }
 
 .hoverable-list-item:hover {
-  font-size: 30px;
+  font-size: 25px;
   background: #f0f0f0;
 }
 

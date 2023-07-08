@@ -47,7 +47,7 @@
 </script>
 
 <h1>Artist page</h1>
-<div class="flex flex-col">
+<div class="flex flex-1 flex-col">
 	{#each spoilerFreeSetlist as song}
 		<div>
 			{song}

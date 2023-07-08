@@ -13,7 +13,7 @@
 </script>
 
 <div class="flex flex-col items-center mx-10">
-	<h1 class="mb-10 px-2 py-1 text-center bg-off-white rounded-lg">Find spoiler-free setlists from your favourite artists</h1>
+	<div class="mb-5 sm:mb-14 px-2 py-1 text-center bg-off-white rounded-lg text-2xl sm:text-3xl">Find spoiler-free setlists from your favourite artists</div>
 
 	<form on:submit|preventDefault={search} class="w-full px-6" method="POST">
 		<div class="searchbox__border flex flex-row">

@@ -48,10 +48,10 @@
 </svelte:head>
 
 <main class="main flex flex-1 dry-cleaning-background">
-	<div class="flex flex-col flex-1 justify-center pb-20">
+	<div class="flex flex-col flex-1 justify-center sm:pb-20">
 		<Search on:performSearch={performSearch} />
 
-		<div class="mt-6">
+		<div class="mt-6 mx-2">
 			{#if showLoading}
 				Loading...
 			{:else if searchError}
