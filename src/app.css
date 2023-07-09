@@ -42,8 +42,7 @@ h3 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 12px;
-  background-color: #fafafa;
+  padding: 4px;
 }
 
 .searchbox__border {
@@ -97,13 +96,22 @@ h3 {
 }
 
 .dry-cleaning-background {
-  /* position: absolute; */
-  /* top:0; */
-  /* left:0; */
   max-width: 100%;
   height: auto;
   background-image: url(./lib/images/20230218150304819.jpg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
+}
+
+.setlist-content {
+  background: transparent url(./lib/images/setlist-paper.jpg) repeat 0 0;
+  box-shadow: 1px solid rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.setlist-list {
+  padding: 15px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0, rgba(0,0,0,0) 20%);
+  min-height: 250px;
 }

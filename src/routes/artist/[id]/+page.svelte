@@ -46,13 +46,18 @@
 	});
 </script>
 
-<h1>Artist page</h1>
-<div class="flex flex-1 flex-col">
-	{#each spoilerFreeSetlist as song}
-		<div>
-			{song}
-		</div>
-	{:else}
-		Loading...
-	{/each}
+<div class="flex-1 mx-32">
+  <div class="setlist-content">
+    <div class="p-4 bg-off-white">Setlist</div>
+    <div class="setlist-list flex flex-col">
+      {#each spoilerFreeSetlist as song}
+        <div class="">
+          {song}
+        </div>
+      {:else}
+        Loading...
+      {/each}
+  </div>
+
+	</div>
 </div>

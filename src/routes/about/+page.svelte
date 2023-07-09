@@ -3,7 +3,7 @@
 	<meta name="description" content="About this app" />
 </svelte:head>
 
-<div class="text-column flex flex-col gap-4 text-md">
+<div class="flex flex-col flex-1 gap-4 text-md px-2 max-w-2xl mx-auto mt-10">
 	<h1>About this app</h1>
 
 	<p>
@@ -16,7 +16,7 @@
 	</p>
 
 	<p>
-		Possible improvments on the way
+		Possible improvments on the way:
 	</p>
 
 	<ul>

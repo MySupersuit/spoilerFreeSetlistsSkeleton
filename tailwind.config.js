@@ -24,9 +24,7 @@ export default {
 			17: '68px',
 			18: '72px',
 			19: '76px',
-			20: '80px'
-		},
-		largeSpacing: {
+			20: '80px',
 			24: '96px',
 			32: '128px',
 			40: '160px',

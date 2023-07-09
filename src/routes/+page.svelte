@@ -47,15 +47,17 @@
 	<meta name="description" content="Svelte demo app" />
 </svelte:head>
 
-<main class="main flex flex-1 dry-cleaning-background">
+<main class="main flex flex-1 dry-cleaning-background px-2">
 	<div class="flex flex-col flex-1 justify-center sm:pb-20">
 		<Search on:performSearch={performSearch} />
 
-		<div class="mt-6 mx-2">
+		<div class="mt-6">
 			{#if showLoading}
-				Loading...
+				<div class="max-w-xl m-auto bg-off-white rounded-lg text-center p-4">Loading...</div>
 			{:else if searchError}
-				Your search returned no results!
+				<div class="max-w-xl m-auto bg-off-white rounded-lg text-center p-4">
+					Your search returned no results! Try again :)
+				</div>
 			{:else}
 				<Results {searchResults} />
 			{/if}
