@@ -12,7 +12,7 @@
 
 	function getUrl(searchTerm) {
 		if (!dev) {
-			return `https://spoiler-free-setlist-fm.vercel.app/api/search/${searchTerm}`;
+			return `https://spoiler-free-setlists.vercel.app/api/search/${searchTerm}`;
 		} else {
 			return `http://localhost:5173/api/search/${searchTerm}`;
 		}
