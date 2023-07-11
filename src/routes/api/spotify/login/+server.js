@@ -3,7 +3,7 @@ import { SPOTIFY_CLIENT_ID, SPOTIFY_SECRET } from '$env/static/private';
 
 function redirectUri() {
 	if (!dev) {
-		return 'something';
+		return 'https://spoiler-free-setlists.vercel.app/code';
 	} else {
 		return 'http://localhost:5173/code';
 	}
