@@ -111,7 +111,45 @@ h3 {
 }
 
 .setlist-list {
-  padding: 15px;
+  padding: 16px 0;
   background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0, rgba(0,0,0,0) 20%);
   min-height: 250px;
+}
+
+.setlist-info-box {
+  border: 2px solid gray;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 0.5rem;
+  align-self: center;
+  padding: 12px;
+  text-align: center;
+}
+
+.setlist-info-box-element {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.spotify-button {
+  color: #fff;
+  background-color: #191414;
+  font-size: 14px;
+  line-height: 1;
+  border-radius: 500px;
+  padding: 12px 28px 11px;
+  transition-property: background-color;
+  transition-duration: .2s;
+  border-width: 0;
+  letter-spacing: 2px;
+  min-width: 160px;
+  text-transform: uppercase;
+  white-space: normal;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #19141489;
+  }
 }
