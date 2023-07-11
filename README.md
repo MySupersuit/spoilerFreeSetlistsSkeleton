@@ -5,3 +5,5 @@
 ![image](https://github.com/MySupersuit/SpoilerFreeSetlistFM/assets/32645063/17858d59-24f2-4a7d-a386-df769575f23d)
 
 (It'll look better in a bit)
+
++ Add playlist to spotify on the way!
