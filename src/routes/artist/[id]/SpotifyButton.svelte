@@ -17,9 +17,15 @@
 	async function getTrackIds() {
 		let ids = [];
 		for (let song of setlist) {
-			let url = generateUrl(song, artist);
+      let truncatedSong = song.split(' ').slice(0,3).join(' ');
+      let sanitisedSong = truncatedSong.replace(/[^a-z0-9 ]/gi, '');
+			let url = generateUrl(sanitisedSong, artist);
 			let resp = await fetch(baseUrl(url));
 			let json = await resp.json();
+      if (json.results.length === 0) {
+        console.log('No song found');
+        continue;
+      }
 			let mostPopularSong = json.results.sort(sortByPopularity)[0];
 			ids.push(mostPopularSong.id);
 		}
