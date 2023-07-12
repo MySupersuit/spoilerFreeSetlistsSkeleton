@@ -145,6 +145,8 @@ h3 {
   border-width: 0;
   letter-spacing: 2px;
   min-width: 160px;
+  max-width: 270px;
+  align-self: center;
   text-transform: uppercase;
   white-space: normal;
   cursor: pointer;

@@ -112,7 +112,7 @@
 			{/if}
 		</div>
 	</div>
-	<div class="flex mt-4 justify-center">
+	<div class="flex my-4 justify-center">
 		<SpotifyButton loggedIn={data.loggedIn} bind:setlist={spoilerFreeSetlist} {artist} />
 	</div>
 </div>

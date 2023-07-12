@@ -17,15 +17,15 @@
 	async function getTrackIds() {
 		let ids = [];
 		for (let song of setlist) {
-      let truncatedSong = song.split(' ').slice(0,3).join(' ');
-      let sanitisedSong = truncatedSong.replace(/[^a-z0-9 ]/gi, '');
+			let truncatedSong = song.split(' ').slice(0, 3).join(' ');
+			let sanitisedSong = truncatedSong.replace(/[^a-z0-9 ]/gi, '');
 			let url = generateUrl(sanitisedSong, artist);
 			let resp = await fetch(baseUrl(url));
 			let json = await resp.json();
-      if (json.results.length === 0) {
-        console.log('No song found');
-        continue;
-      }
+			if (json.results.length === 0) {
+				console.log('No song found');
+				continue;
+			}
 			let mostPopularSong = json.results.sort(sortByPopularity)[0];
 			ids.push(mostPopularSong.id);
 		}
@@ -43,14 +43,14 @@
 
 	async function addTracksToPlaylist(trackIds, playlistId) {
 		let body = JSON.stringify({
-      trackIds,
+			trackIds,
 			playlistId
 		});
 		let url = `api/spotify/playlist`;
 		let resp = await fetch(baseUrl(url), {
-      method: "PUT",
-      body,
-    });
+			method: 'PUT',
+			body
+		});
 	}
 
 	async function createPlaylist() {
@@ -74,24 +74,25 @@
 			createPlaylist();
 			// do saving the playlist stuff
 		} else {
-      window.open(json.url, 'Spotify login', 'height=900,width=850');
-      loggedIn = true
+			window.open(json.url, 'Spotify login', 'height=900,width=850');
+			loggedIn = true;
 		}
 	}
 </script>
 
 <div class="flex flex-col text-center">
-	<h2 class="mb-2">Spotify It&nbsp;&nbsp;🎉</h2>
+	<h2 class="mb-2">Spotify it&nbsp;&nbsp;🎉</h2>
 	<button on:click|preventDefault={handleClick} class="spotify-button">
-		<div class="flex flex-row items-center justify-between">
+		<div class="flex flex-row items-center justify-center">
 			<img class="h-9 mr-3" src={spotify} alt="spotify logo" />
 			<span>
-        {#if loggedIn}
-          Save as playlist
-        {:else}
-          Login
-        {/if}
-      </span>
+				{#if loggedIn}
+					Save as playlist
+				{:else}
+					Login
+				{/if}
+			</span>
 		</div>
 	</button>
+  <span class="text-sm mt-1">Spotify login only used for creating playlist - no data read</span>
 </div>
