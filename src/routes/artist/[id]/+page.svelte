@@ -8,6 +8,7 @@
 	let spoilerFreeSetlist = [];
 	let oldestSetlistInfo = {};
 	let newestSetlistInfo = {};
+	let artist = '';
 
 	function getAllSongs(setlists) {
 		let allSongs = setlists.flatMap((setlist) => {
@@ -67,6 +68,7 @@
 	};
 
 	onMount(() => {
+		artist = data.setlists[0].artist.name;
 		spoilerFreeSetlist = generateSpoilerFreeSetlist(data.setlists);
 		newestSetlistInfo = getSetlistInfo(data.setlists[0]);
 		oldestSetlistInfo = getSetlistInfo(data.setlists[data.setlists.length - 1]);
@@ -75,7 +77,7 @@
 
 <div class="flex flex-col flex-1 mx-2 sm:mx-32">
 	<div class="setlist-content">
-		<div class="p-4 bg-off-white">Setlist</div>
+		<div class="p-4 bg-off-white">{artist}'s average setlist:</div>
 		<div class="flex flex-row setlist-list gap-4">
 			<div class="flex flex-col gap-2 w-7/12 overflow-hidden">
 				{#each spoilerFreeSetlist as song}
@@ -111,6 +113,6 @@
 		</div>
 	</div>
 	<div class="flex mt-4 justify-center">
-		<SpotifyButton />
+		<SpotifyButton loggedIn={data.loggedIn} bind:setlist={spoilerFreeSetlist} {artist} />
 	</div>
 </div>

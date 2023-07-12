@@ -2,21 +2,13 @@
 	import Search from './Search.svelte';
 	import Results from './results/Results.svelte';
 	// import Description from './Description.svelte';
-	import { dev } from '$app/environment';
+	import { baseUrl } from '../utils/baseUrl';
 
 	let searchResults = [];
 	let searching = false;
 	let searchPerformed = false;
 	let searchError = false;
 	$: showLoading = searching;
-
-	function getUrl(searchTerm) {
-		if (!dev) {
-			return `https://spoiler-free-setlists.vercel.app/api/search/${searchTerm}`;
-		} else {
-			return `http://localhost:5173/api/search/${searchTerm}`;
-		}
-	}
 
 	/**
 	 * @param {{ detail: { term: any; }; }} event
@@ -26,7 +18,7 @@
 		searchError = false;
 
 		const searchTerm = event.detail.term;
-		const response = await fetch(getUrl(searchTerm));
+		const response = await fetch(baseUrl(`api/search/${searchTerm}`));
 		const data = await response.json();
 
 		if (data.status !== 200) {
