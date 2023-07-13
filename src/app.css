@@ -6,11 +6,13 @@
   font-family: cabin-bold;
   src: url(./lib/fonts/cabin-bold-ttf.ttf);
   font-weight: bold;
+  font-display: swap;
 }
 
 @font-face {
   font-family: cabin;
   src: url(./lib/fonts/cabin-regular.ttf);
+  font-display: swap;
 }
 
 h1 {
