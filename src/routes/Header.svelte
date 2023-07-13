@@ -11,7 +11,7 @@
 			<a class="text-bold" href="/">Home</a>
 			<a class="text-bold" href="/about">About</a>
 			<a class="w-10" href="https://github.com/mysupersuit">
-				<img src={github} alt="GitHub logo link" />
+				<img width={40} height={40} src={github} alt="GitHub logo link" />
 			</a>
 		</div>
 	</div>
