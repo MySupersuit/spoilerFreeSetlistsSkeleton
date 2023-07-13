@@ -3,6 +3,9 @@
 	import SpotifyButton from './SpotifyButton.svelte';
 	import { cubicInOut } from 'svelte/easing';
 	import { fade } from 'svelte/transition';
+	import { log } from '../../../utils/utils';
+
+	const ns = "routes/artist/[id]/+page"
 
 	export let data;
 	let spoilerFreeSetlist = [];
@@ -68,6 +71,7 @@
 	};
 
 	onMount(() => {
+		log(ns, data);
 		artist = data.setlists[0].artist.name;
 		spoilerFreeSetlist = generateSpoilerFreeSetlist(data.setlists);
 		newestSetlistInfo = getSetlistInfo(data.setlists[0]);

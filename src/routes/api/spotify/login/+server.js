@@ -1,5 +1,5 @@
 import { SPOTIFY_CLIENT_ID, SPOTIFY_SECRET } from '$env/static/private';
-import { baseUrl, spotifyBaseUrl } from '../../../../utils/baseUrl.js';
+import { baseUrl, spotifyBaseUrl } from '../../../../utils/utils.js';
 
 export async function GET({ cookies }) {
 	let savedToken = cookies.get('spotify_token');

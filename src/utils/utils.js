@@ -11,3 +11,7 @@ export function baseUrl(path) {
 export function spotifyBaseUrl(path) {
 	return `https://api.spotify.com/v1/${path}`;
 }
+
+export function log(ns, msg, err = false) {
+	err ? console.error(ns, msg) : console.log(ns, msg);
+}

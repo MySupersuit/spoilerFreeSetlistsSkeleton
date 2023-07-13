@@ -1,6 +1,6 @@
 <script>
 	import spotify from '$lib/images/spotify_svg.svg';
-	import { baseUrl } from '../../../utils/baseUrl';
+	import { baseUrl } from '../../../utils/utils';
 
 	export let loggedIn = false;
 	export let setlist = [];

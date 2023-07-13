@@ -2,7 +2,7 @@
 	import Search from './Search.svelte';
 	import Results from './results/Results.svelte';
 	// import Description from './Description.svelte';
-	import { baseUrl } from '../utils/baseUrl';
+	import { baseUrl } from '../utils/utils';
 
 	let searchResults = [];
 	let searching = false;

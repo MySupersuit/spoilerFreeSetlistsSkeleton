@@ -1,6 +1,6 @@
 // import { dev } from '$app/environment';
 
-import { spotifyBaseUrl } from '../../../../utils/baseUrl.js';
+import { spotifyBaseUrl } from '../../../../utils/utils.js';
 
 export async function POST({ cookies }) {
 	// get name from url params

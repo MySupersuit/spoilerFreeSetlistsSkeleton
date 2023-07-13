@@ -1,4 +1,4 @@
-import { baseUrl } from '../../utils/baseUrl.js';
+import { baseUrl } from '../../utils/utils.js';
 
 export async function load({ url, cookies }) {
 	console.log('CALLING LOAD');

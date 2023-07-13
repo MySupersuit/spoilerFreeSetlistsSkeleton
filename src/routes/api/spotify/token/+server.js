@@ -1,5 +1,5 @@
 import { SPOTIFY_CLIENT_ID, SPOTIFY_SECRET } from '$env/static/private';
-import { spotifyBaseUrl, baseUrl } from '../../../../utils/baseUrl.js';
+import { spotifyBaseUrl, baseUrl } from '../../../../utils/utils.js';
 
 export async function GET({ url }) {
 	let code = url.searchParams.get('code');

@@ -1,4 +1,4 @@
-import { spotifyBaseUrl } from '../../../../utils/baseUrl.js';
+import { spotifyBaseUrl } from '../../../../utils/utils.js';
 
 export async function GET({ cookies, url }) {
 	let savedToken = cookies.get('spotify_token');
