@@ -3,7 +3,7 @@
 	import SpotifyButton from './SpotifyButton.svelte';
 	import { cubicInOut } from 'svelte/easing';
 	import { fade } from 'svelte/transition';
-	import { log } from '../../../utils/utils';
+	import { formatDate, log } from '../../../utils/utils';
 
 	const ns = "routes/artist/[id]/+page"
 
@@ -61,14 +61,6 @@
 			city: setlist.venue.city.name
 		};
 	}
-
-	const formatDate = (date) => {
-		let dateObj = new Date();
-		let splits = date.split('-');
-		let month = parseInt(splits[1], 10);
-		dateObj.setMonth(month - 1);
-		return `${splits[0]}th of ${dateObj.toLocaleString([], { month: 'long' })}, ${splits[2]}`;
-	};
 
 	onMount(() => {
 		log(ns, data);
