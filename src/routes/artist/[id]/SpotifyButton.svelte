@@ -34,8 +34,12 @@
 
 	async function createEmptyPlaylist() {
 		let url = 'api/spotify/playlist';
+		let body = JSON.stringify({
+			artistName: artist
+		});
 		let resp = await fetch(baseUrl(url), {
-			method: 'POST'
+			method: 'POST',
+			body
 		});
 		let json = await resp.json();
 		return json.playlistId;
@@ -47,20 +51,18 @@
 			playlistId
 		});
 		let url = `api/spotify/playlist`;
-		let resp = await fetch(baseUrl(url), {
+		await fetch(baseUrl(url), {
 			method: 'PUT',
 			body
 		});
 	}
 
 	async function createPlaylist() {
-		console.log(setlist);
 		if (setlist.length === 0) {
 			return;
 		}
 
 		let idsToAdd = await getTrackIds();
-
 		let playlistId = await createEmptyPlaylist();
 
 		await addTracksToPlaylist(idsToAdd, playlistId);
@@ -72,7 +74,6 @@
 		if (json.signedIn) {
 			console.log('Saving the playlist boiii');
 			createPlaylist();
-			// do saving the playlist stuff
 		} else {
 			window.open(json.url, 'Spotify login', 'height=900,width=850');
 			loggedIn = true;
@@ -94,5 +95,5 @@
 			</span>
 		</div>
 	</button>
-  <span class="text-sm mt-1">Spotify login only used for creating playlist - no data read</span>
+	<span class="text-sm mt-1">Spotify login only used for creating playlist - no data read</span>
 </div>

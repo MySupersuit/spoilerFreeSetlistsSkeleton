@@ -1,13 +1,15 @@
-// import { dev } from '$app/environment';
+import { log, spotifyBaseUrl } from '../../../../utils/utils.js';
 
-import { spotifyBaseUrl } from '../../../../utils/utils.js';
+const ns = 'routes/api/spotify/playlist/+server';
 
-export async function POST({ cookies }) {
-	// get name from url params
+export async function POST({ cookies, request }) {
+	let body = await request.json();
+	let { artistName } = body;
+
 	let userId = cookies.get('spotify_user_id');
 	if (!userId) {
 		// fetch and save
-		console.log('no user id');
+		log(ns, 'no user ID', true);
 	}
 
 	let savedToken = cookies.get('spotify_token');
@@ -22,8 +24,8 @@ export async function POST({ cookies }) {
 			Authorization: `Bearer ${savedToken}`
 		},
 		body: JSON.stringify({
-			name: 'Test playlist',
-			description: 'Test description'
+			name: `${artistName}: Spoiler-free setlist`,
+			description: `A randomised average setlist from ${artistName}'s last ~20 gigs. Made with https://spoiler-free-setlists.vercel.app`
 		})
 	});
 
