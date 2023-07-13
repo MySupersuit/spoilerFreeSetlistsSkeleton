@@ -1,6 +1,7 @@
 <script>
 	import spotify from '$lib/images/spotify_svg.svg';
 	import { baseUrl } from '../../../utils/utils';
+	import { Stretch } from 'svelte-loading-spinners';
 
 	export let loggedIn = false;
 	export let setlist = [];
@@ -90,35 +91,48 @@
 			loggedIn = true;
 		}
 	}
+
+	function showLoadingSpinner(apiRequestSent, waitingForApiResponse) {
+		return apiRequestSent && waitingForApiResponse;
+	}
+
+	function buttonClasses(apiRequestFail) {
+		let classes = 'spotify-button';
+		if (apiRequestFail) {
+			classes += ' failed';
+		}
+		return classes;
+	}
 </script>
 
 <div class="flex flex-col text-center">
 	<h2 class="mb-2">Spotify it&nbsp;&nbsp;🎉</h2>
-	{#if apiRequestSent}
-		<span class="mb-1">
-			{#if waitingForApiResponse}
-				Loading...
-			{:else if apiRequestFail}
-				Playlist creation failed :(
-			{:else}
-				Playlist created!
-			{/if}
-		</span>
-	{/if}
 	<button
 		on:click|preventDefault={handleClick}
 		disabled={apiRequestSent}
-		class="spotify-button"
+		class={buttonClasses(apiRequestFail)}
 	>
 		<div class="flex flex-row items-center justify-center">
-			<img class="h-9 mr-3" src={spotify} alt="spotify logo" />
-			<span>
-				{#if loggedIn}
-					Save as playlist
+			<!-- must be a better way to do this -->
+			{#if loggedIn}
+				{#if apiRequestSent}
+					{#if waitingForApiResponse}
+						<Stretch size="40" color="#44D760" unit="px" duration="1s" />
+					{:else if apiRequestFail}
+						<img class="h-9 mr-3" src={spotify} alt="spotify logo" />
+						<span>Failed :(</span>
+					{:else}
+						<img class="h-9 mr-3" src={spotify} alt="spotify logo" />
+						<span>Created!</span>
+					{/if}
 				{:else}
-					Login
+					<img class="h-9 mr-3" src={spotify} alt="spotify logo" />
+					<span>Save as playlist</span>
 				{/if}
-			</span>
+			{:else}
+				<img class="h-9 mr-3" src={spotify} alt="spotify logo" />
+				<span>Login</span>
+			{/if}
 		</div>
 	</button>
 	<span class="text-sm mt-1">Spotify login only used for creating playlist - no data read</span>

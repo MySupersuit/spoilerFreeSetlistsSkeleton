@@ -144,8 +144,9 @@ h3 {
   transition-duration: .2s;
   border-width: 0;
   letter-spacing: 2px;
-  min-width: 160px;
-  max-width: 270px;
+  min-width: 260px;
+  max-width: 260px;
+  max-height: 60px;
   align-self: center;
   text-transform: uppercase;
   white-space: normal;
@@ -156,7 +157,11 @@ h3 {
   }
 
   &:disabled {
-    background-color: #19141489;
+    pointer-events: none;
+  }
+
+  &.failed {
+    background-color: #ca0606;
     pointer-events: none;
   }
 }
