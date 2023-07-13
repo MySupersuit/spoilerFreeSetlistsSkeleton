@@ -5,7 +5,7 @@
 <header class="bg-off-white">
 	<div class="h-fit-content flex justify-between mx-6 mt-2 mb-3">
 		<div class="flex flex-row">
-			<span class="self-center pr-2 text-lg md:text-4xl text-bold">spoiler free setlist.fm</span>
+			<a class="self-center pr-2 text-lg md:text-4xl text-bold" href="/">spoiler free setlist.fm</a>
 		</div>
 		<div class="flex flex-row gap-2 items-center">
 			<a class="text-bold" href="/">Home</a>
