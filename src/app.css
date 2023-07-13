@@ -154,4 +154,9 @@ h3 {
   &:hover {
     background-color: #19141489;
   }
+
+  &:disabled {
+    background-color: #19141489;
+    pointer-events: none;
+  }
 }

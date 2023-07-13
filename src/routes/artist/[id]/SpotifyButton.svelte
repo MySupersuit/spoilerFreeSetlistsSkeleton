@@ -5,6 +5,9 @@
 	export let loggedIn = false;
 	export let setlist = [];
 	export let artist = '';
+	let apiRequestSent = false;
+	let waitingForApiResponse = true;
+	let apiRequestFail = false;
 
 	function generateUrl(song, artist) {
 		return `api/spotify/search?song=${song}&artist=${artist}`;
@@ -51,10 +54,14 @@
 			playlistId
 		});
 		let url = `api/spotify/playlist`;
-		await fetch(baseUrl(url), {
+		let resp = await fetch(baseUrl(url), {
 			method: 'PUT',
 			body
 		});
+		if (resp.status !== 200) {
+			apiRequestFail = true;
+			apiRequestSent = false;
+		}
 	}
 
 	async function createPlaylist() {
@@ -69,11 +76,15 @@
 	}
 
 	async function handleClick() {
+		apiRequestFail = false;
 		let resp = await fetch(baseUrl('api/spotify/login'));
 		let json = await resp.json();
 		if (json.signedIn) {
 			console.log('Saving the playlist boiii');
-			createPlaylist();
+			apiRequestSent = true;
+			waitingForApiResponse = true;
+			await createPlaylist();
+			waitingForApiResponse = false;
 		} else {
 			window.open(json.url, 'Spotify login', 'height=900,width=850');
 			loggedIn = true;
@@ -83,7 +94,22 @@
 
 <div class="flex flex-col text-center">
 	<h2 class="mb-2">Spotify it&nbsp;&nbsp;🎉</h2>
-	<button on:click|preventDefault={handleClick} class="spotify-button">
+	{#if apiRequestSent}
+		<span class="mb-1">
+			{#if waitingForApiResponse}
+				Loading...
+			{:else if apiRequestFail}
+				Playlist creation failed :(
+			{:else}
+				Playlist created!
+			{/if}
+		</span>
+	{/if}
+	<button
+		on:click|preventDefault={handleClick}
+		disabled={apiRequestSent}
+		class="spotify-button"
+	>
 		<div class="flex flex-row items-center justify-center">
 			<img class="h-9 mr-3" src={spotify} alt="spotify logo" />
 			<span>
