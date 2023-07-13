@@ -20,7 +20,7 @@ export function log(ns, msg, err = false) {
 export function formatDate(date) {
 	let splits = date.split('-');
 	let dateObj = new Date(splits[2], splits[1]-1, splits[0]);
-	let options = { day: "numeric", year: '2-digit', month: 'short' }
+	let options = { day: 'numeric', year: '2-digit', month: 'long' };
 	let string = dateObj.toLocaleDateString(undefined, options);
 	let parts = string.split(' ');
 	let day = dateOrdinal(parts[0]);
