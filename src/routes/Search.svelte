@@ -24,7 +24,7 @@
 				placeholder="Enter an artist..."
 				required
 			/>
-			<button class="searchbox__button hidden md:block" />
+			<button aria-label="search-button" class="searchbox__button hidden md:block" />
 		</div>
 	</form>
 </div>
