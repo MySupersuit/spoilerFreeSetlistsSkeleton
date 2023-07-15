@@ -6,4 +6,4 @@
 
 (It'll look better in a bit)
 
-+ Add playlist to spotify on the way!
+With skeleton.dev
