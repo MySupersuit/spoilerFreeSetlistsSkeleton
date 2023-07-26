@@ -1,17 +1,27 @@
 <script>
 	import { onMount } from 'svelte';
 	import SpotifyButton from './SpotifyButton.svelte';
-	import { cubicInOut } from 'svelte/easing';
-	import { fade } from 'svelte/transition';
 	import { formatDate, log } from '../../../utils/utils';
+	import { AppBar, drawerStore } from '@skeletonlabs/skeleton';
 
-	const ns = "routes/artist/[id]/+page"
+	const ns = 'routes/artist/[id]/+page';
 
 	export let data;
 	let spoilerFreeSetlist = [];
 	let oldestSetlistInfo = {};
 	let newestSetlistInfo = {};
 	let artist = '';
+	let setlistCount;
+
+	onMount(() => {
+		// log(ns, data.setlists);
+		console.log(data);
+		artist = data.setlists[0].artist.name;
+		spoilerFreeSetlist = generateSpoilerFreeSetlist(data.setlists);
+		newestSetlistInfo = getSetlistInfo(data.setlists[0]);
+		oldestSetlistInfo = getSetlistInfo(data.setlists[data.setlists.length - 1]);
+		setlistCount = data.setlists.length;
+	});
 
 	function getAllSongs(setlists) {
 		let allSongs = setlists.flatMap((setlist) => {
@@ -58,57 +68,53 @@
 		return {
 			date: formatDate(setlist.eventDate),
 			venue: setlist.venue.name,
-			city: setlist.venue.city.name
+			city: setlist.venue.city.name,
+			url: setlist.url,
 		};
 	}
 
-	onMount(() => {
-		log(ns, data);
-		artist = data.setlists[0].artist.name;
-		spoilerFreeSetlist = generateSpoilerFreeSetlist(data.setlists);
-		newestSetlistInfo = getSetlistInfo(data.setlists[0]);
-		oldestSetlistInfo = getSetlistInfo(data.setlists[data.setlists.length - 1]);
-	});
+	function openDrawer() {
+		console.log('opening drawer');
+		const drawerSetting = {
+			id: 'infoDrawer',
+			position: 'bottom',
+			meta: { artist, oldestSetlistInfo, newestSetlistInfo, setlistCount },
+			width: 'w-[100%] md:w-[75%]',
+			height: 'h-[65%] md:h-[40%]',
+			padding: 'p-4',
+			rounded: 'rounded-xl',
+			bgDrawer: 'variant-filled-surface',
+			regionBackdrop: 'justify-center',
+			// bgBackdrop: 'bg-gradient-to-tr from-indigo-500/50 via-purple-500/50 to-pink-500/50'
+			// bgBackdrop: 'bg-gradient-to-tr from-primary-500/50 to-secondary-500/50'
+		};
+		drawerStore.open(drawerSetting);
+	}
 </script>
 
-<div class="flex flex-col flex-1 mx-2 sm:mx-32">
-	<div class="setlist-content">
-		<div class="p-4 bg-off-white">{artist}'s average setlist:</div>
-		<div class="flex flex-row setlist-list gap-4">
-			<div class="flex flex-col gap-2 w-7/12 overflow-hidden">
-				{#each spoilerFreeSetlist as song}
-					<div class="pl-3 sm:pl-6">
-						{song}
-					</div>
-				{:else}
-					Loading...
-				{/each}
+<div class="card bg-initial max-w-2xl mx-auto mt-10">
+	<AppBar background="bg-initial" class="rounded-md">
+		<svelte:fragment slot="lead">
+			<span>{artist}'s average setlist</span>
+		</svelte:fragment>
+		<svelte:fragment slot="trail">
+			<SpotifyButton loggedIn={data.loggedIn} bind:setlist={spoilerFreeSetlist} {artist} />
+		</svelte:fragment>
+	</AppBar>
+	<hr />
+	<div class="p-4 space-y-2">
+		{#each spoilerFreeSetlist as song}
+			<div class="pl-3 sm:pl-6">
+				{song}
 			</div>
-			{#if spoilerFreeSetlist.length > 0}
-				<div
-					class="flex flex-1 justify-center pr-3"
-					transition:fade={{
-						easing: cubicInOut,
-						duration: 500
-					}}
-				>
-					<div class="setlist-info-box">
-						<span class="mb-4">{spoilerFreeSetlist.length} gigs from</span>
-						<div class="setlist-info-box-element">
-							<span>{oldestSetlistInfo.date}</span>
-							<span class="text-xs">{oldestSetlistInfo.venue}, {oldestSetlistInfo.city}</span>
-						</div>
-						<div class="text-xs my-2">to</div>
-						<div class="setlist-info-box-element">
-							<span>{newestSetlistInfo.date}</span>
-							<span class="text-xs">{newestSetlistInfo.venue}, {newestSetlistInfo.city}</span>
-						</div>
-					</div>
-				</div>
-			{/if}
-		</div>
+		{:else}
+			Loading...
+		{/each}
 	</div>
-	<div class="flex my-4 justify-center">
-		<SpotifyButton loggedIn={data.loggedIn} bind:setlist={spoilerFreeSetlist} {artist} />
-	</div>
+</div>
+
+<div class="flex mt-4 mb-3 justify-center">
+	<button class="btn-icon variant-filled" on:click={openDrawer}>
+		<i class="fa-solid fa-arrow-up" />
+	</button>
 </div>

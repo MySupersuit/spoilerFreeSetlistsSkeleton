@@ -1,0 +1,106 @@
+/* Write your global styles here, in PostCSS syntax */
+
+html,
+body {
+	@apply h-full overflow-hidden;
+}
+
+.text-stroke-base-token {
+	text-shadow: -1px -1px 0 rgb(var(--color-surface-50)), 1px -1px 0 rgb(var(--color-surface-50)),
+		-1px 1px 0 rgb(var(--color-surface-50)), 1px 1px 0 rgb(var(--color-surface-50));
+}
+
+.text-stroke-dark-token {
+	text-shadow: -1px -1px 0 rgb(var(--color-surface-900)), 1px -1px 0 rgb(var(--color-surface-900)),
+		-1px 1px 0 rgb(var(--color-surface-900)), 1px 1px 0 rgb(var(--color-surface-900));
+}
+
+/* .text-stroke-token {
+	@apply text-stroke-base-token dark:text-stroke-dark-token;
+} */
+
+/* body {
+  background-image: url(./lib/images/drycleaning.webp);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+} */
+
+.dry_cleaning_background {
+	background-image: url(./lib/images/drycleaning.webp);
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}
+
+.spotify-color {
+	color: #1db954;
+}
+
+.spotify-button {
+	background-color: #1db954;
+  color: #222;
+}
+
+.text-stroke {
+	text-shadow: -1px -1px 0 rgb(var(--color-surface-50)), 1px -1px 0 rgb(var(--color-surface-50)),
+		-1px 1px 0 rgb(var(--color-surface-50)), 1px 1px 0 rgb(var(--color-surface-50));
+}
+
+/* @layer test {
+	.text-stroke-light {
+		text-shadow: -1px -1px 0 rgb(var(--color-surface-900)), 1px -1px 0 rgb(var(--color-surface-900)),
+			-1px 1px 0 rgb(var(--color-surface-900)), 1px 1px 0 rgb(var(--color-surface-900));
+	}
+	.text-stroke-dark {
+		text-shadow: -1px -1px 0 rgb(var(--color-surface-50)), 1px -1px 0 rgb(var(--color-surface-50)),
+			-1px 1px 0 rgb(var(--color-surface-50)), 1px 1px 0 rgb(var(--color-surface-50));
+	}
+
+	.text-stroke {
+		@apply text-stroke-light dark:text-stroke-dark;
+	}
+} */
+
+.search_results {
+	top: 294px;
+}
+
+@media only screen and (min-width: 332px) {
+	.search_results {
+		top: 222px;
+	}
+}
+
+@media only screen and (min-width: 440px) {
+	.search_results {
+		top: 186px;
+	}
+}
+
+@media only screen and (min-width: 755px) {
+	.search_results {
+		top: 150px;
+	}
+}
+
+.github_svg {
+	height: 40px;
+	width: 40px;
+	-webkit-mask: url($lib/images/github.svg) no-repeat center;
+	mask: url($lib/images/github.svg) no-repeat center;
+}
+
+.spotify_image {
+  height: 32px;
+  width: 32px;
+  background-image: url($lib/images/spotify-32.ico);
+  background-repeat: no-repeat;
+  background-position: center;
+  color: #707;
+  fill: #808;
+}
+
+.off_black {
+  color: #222;
+}

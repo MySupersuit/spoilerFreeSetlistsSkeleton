@@ -1,4 +1,7 @@
 import { API_KEY } from '$env/static/private';
+import { log } from '../../../../utils/utils.js';
+
+const ns = 'routes/api/search/[term]/+server';
 
 export async function GET({ params }) {
 	const { term } = params;
@@ -11,9 +14,18 @@ export async function GET({ params }) {
 			'Accept-encoding': 'gzip, deflate, br'
 		}
 	});
+	if (response.status === 404 && response.statusText == 'Not Found') {
+		log(ns, `bad search ${term}`, true);
+		return new Response(
+			JSON.stringify({ status: response.status, statusText: response.statusText })
+		);
+	}
 	if (response.status !== 200) {
-		return new Response(JSON.stringify({ status: response.status }));
+		log(ns, 'other error', true);
+		return new Response(JSON.stringify({ status: response.status, statusText: 'Other error' }));
 	}
 	const json = await response.json();
-	return new Response(JSON.stringify({ artists: json.artist, status: response.status }));
+	return new Response(
+		JSON.stringify({ artists: json.artist, status: response.status, statusText: 'OK' })
+	);
 }
