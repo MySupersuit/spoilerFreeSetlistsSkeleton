@@ -1,7 +1,7 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
 	import { Autocomplete, popup } from '@skeletonlabs/skeleton';
-	import { debounce } from 'lodash';
+	import debounce from 'lodash/debounce';
 	import { baseUrl, log } from '../utils/utils';
 	import { Stretch } from 'svelte-loading-spinners';
 
