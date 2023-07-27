@@ -25,7 +25,7 @@ export async function POST({ cookies, request }) {
 		},
 		body: JSON.stringify({
 			name: `${artistName}: Spoiler-free setlist`,
-			description: `A randomised average setlist from ${artistName}'s last ~20 gigs. Made with https://spoiler-free-setlists-azure.vercel.app`
+			description: `A randomised average setlist from ${artistName}'s last ~20 gigs. Made with https://spoiler-free-setlists.vercel.app`
 		})
 	});
 
