@@ -28,8 +28,8 @@
 			<h3 class="h3">played {$drawerStore.meta.setlistCount} gigs from...</h3>
 		</div>
 		<hr class="!border-t-4" />
-		<div class="flex flex-row self-center h-full w-full justify-around text-center">
-			<div class="px-4 py-10 flex flex-col">
+		<div class="self-center h-full w-full text-center grid grid-cols-2">
+			<div class="px-4 py-10 flex flex-col border-r-2 border-surface-300-600-token">
 				<h3 class="h3 mb-2">{$drawerStore.meta.oldestSetlistInfo.date}</h3>
 				<h6 class="h6 mb-5">
 					{$drawerStore.meta.oldestSetlistInfo.venue}, {$drawerStore.meta.oldestSetlistInfo.city}
@@ -40,7 +40,6 @@
 					target="_blank">Link to setlist - careful, here lies spoilers!</a
 				>
 			</div>
-			<span class="divider-vertical h-full m-0" />
 			<div class="px-4 py-10">
 				<h3 class="h3 mb-2">{$drawerStore.meta.newestSetlistInfo.date}</h3>
 				<h6 class="h6 mb-5">

@@ -79,14 +79,12 @@
 			id: 'infoDrawer',
 			position: 'bottom',
 			meta: { artist, oldestSetlistInfo, newestSetlistInfo, setlistCount },
-			width: 'w-[100%] md:w-[75%]',
+			width: 'w-[100%] md:w-[65%] xl:w-[50%]',
 			height: 'h-[65%] md:h-[40%]',
 			padding: 'p-4',
 			rounded: 'rounded-xl',
 			bgDrawer: 'variant-filled-surface',
 			regionBackdrop: 'justify-center',
-			// bgBackdrop: 'bg-gradient-to-tr from-indigo-500/50 via-purple-500/50 to-pink-500/50'
-			// bgBackdrop: 'bg-gradient-to-tr from-primary-500/50 to-secondary-500/50'
 		};
 		drawerStore.open(drawerSetting);
 	}
