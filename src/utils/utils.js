@@ -4,7 +4,7 @@ export function baseUrl(path) {
 	if (dev) {
 		return `http://localhost:5173/${path}`;
 	} else {
-		return `https://spoiler-free-setlists.vercel.app/${path}`;
+		return `https://spoiler-free-setlists-azure.vercel.app/${path}`;
 	}
 }
 
