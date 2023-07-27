@@ -1,9 +1,10 @@
 # Spoiler Free Setlist.fm
 
-[Ever wanted to look up a band's setlist but not want the order ruined for you? Well isn't this just the rugged web app for you!](https://spoiler-free-setlists.vercel.app) (might take a second for the server to spin up when clicking that link)
+When you want to know the songs but not the order
 
-![image](https://github.com/MySupersuit/SpoilerFreeSetlistFM/assets/32645063/17858d59-24f2-4a7d-a386-df769575f23d)
+https://spoiler-free-setlists.vercel.app
 
-(It'll look better in a bit)
+![image](https://github.com/MySupersuit/spoilerFreeSetlistsSkeleton/assets/32645063/9f226b29-4967-4737-96ff-3d59d6f93443)
 
-With skeleton.dev
+
+Svelte + SvelteKit + Skeleton.dev
