@@ -1,7 +1,6 @@
 import { baseUrl } from '../../utils/utils.js';
 
 export async function load({ url, cookies }) {
-	console.log('CALLING LOAD');
 	let code = url.searchParams.get('code');
 	let state = url.searchParams.get('state');
 	let r = await fetch(baseUrl(`api/spotify/token?code=${code}&state=${state}`));

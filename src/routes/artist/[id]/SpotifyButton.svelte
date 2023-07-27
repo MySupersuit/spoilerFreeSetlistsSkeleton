@@ -31,7 +31,6 @@
 			let resp = await fetch(baseUrl(url));
 			let json = await resp.json();
 			if (json.results.length === 0) {
-				console.log('No song found');
 				continue;
 			}
 			let mostPopularSong = json.results.sort(sortByPopularity)[0];
@@ -106,7 +105,6 @@
 		let resp = await fetch(baseUrl('api/spotify/login'));
 		let json = await resp.json();
 		if (json.signedIn) {
-			console.log('Saving the playlist boiii');
 			apiRequestSent = true;
 			waitingForApiResponse = true;
 			await createPlaylist();

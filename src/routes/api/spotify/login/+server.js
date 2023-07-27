@@ -39,6 +39,5 @@ async function getUserId(token) {
 		}
 	});
 	let json = await resp.json();
-	console.log(json.id);
 	return json.id;
 }

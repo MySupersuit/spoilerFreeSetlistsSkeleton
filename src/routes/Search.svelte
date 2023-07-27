@@ -13,14 +13,11 @@
 		searching = true;
 		searchError = '';
 
-		console.log('term', term);
 		const searchTerm = term;
 		const response = await fetch(baseUrl(`api/search/${searchTerm}`));
 		const data = await response.json();
-		console.log('data', data);
 
 		if (data.status === 404 && data.statusText === 'Not Found') {
-			console.log('here1');
 			autoCompleteOptions = [];
 			searchError = "No results - make sure you're using full words!";
 			searching = false;
@@ -38,12 +35,9 @@
 		// searchPerformed = true;
 		searching = false;
 		autoCompleteOptions = convertSearchResults(data.artists.splice(0, 10));
-		console.log('auto', autoCompleteOptions);
-		console.log('auto length', autoCompleteOptions.length);
 	}
 
 	function convertSearchResults(results) {
-		console.log('res', results);
 		return results.map((result) => {
 			return {
 				name: result.name,
@@ -75,7 +69,6 @@
 	}
 
 	const onInput = debounce((e) => {
-		console.log(e.target.value);
 		if (searchTerm.length === 0) {
 			autoCompleteOptions = [];
 		}

@@ -1,11 +1,13 @@
 import { SPOTIFY_CLIENT_ID, SPOTIFY_SECRET } from '$env/static/private';
-import { spotifyBaseUrl, baseUrl } from '../../../../utils/utils.js';
+import { spotifyBaseUrl, baseUrl, log } from '../../../../utils/utils.js';
+
+const ns = 'api/spotify/token/+server';
 
 export async function GET({ url }) {
 	let code = url.searchParams.get('code');
 	let state = url.searchParams.get('state');
 	if (state === null) {
-		console.log('error in api/spotify/token');
+		log(ns, 'error');
 		return new Response();
 	}
 
@@ -42,6 +44,5 @@ async function getUserId(token) {
 		}
 	});
 	let json = await resp.json();
-	console.log(json.id);
 	return json.id;
 }

@@ -52,9 +52,7 @@ export async function PUT({ cookies, request }) {
 			uris: trackIds
 		})
 	});
-	console.log('resp', resp);
-	let json = await resp.json();
-	console.log('json', json);
+
 	if (resp.status === 201) {
 		return new Response(JSON.stringify({ ok: 'ok' }));
 	} else {

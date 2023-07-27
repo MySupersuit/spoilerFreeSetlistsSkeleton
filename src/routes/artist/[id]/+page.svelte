@@ -15,7 +15,6 @@
 
 	onMount(() => {
 		// log(ns, data.setlists);
-		console.log(data);
 		artist = data.setlists[0].artist.name;
 		spoilerFreeSetlist = generateSpoilerFreeSetlist(data.setlists);
 		newestSetlistInfo = getSetlistInfo(data.setlists[0]);
@@ -74,7 +73,6 @@
 	}
 
 	function openDrawer() {
-		console.log('opening drawer');
 		const drawerSetting = {
 			id: 'infoDrawer',
 			position: 'bottom',
