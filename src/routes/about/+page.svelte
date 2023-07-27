@@ -23,7 +23,6 @@
 
 	<ul>
 		<li>- Recent big artists (so you don't have to think of someone to type in)</li>
-		<li>- Better UI (obvs) (Skeleton.dev?)</li>
 		<li>- More info about the recent gigs? List of em + dates + next ones?</li>
 	</ul>
 </div>
