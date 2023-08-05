@@ -86,11 +86,13 @@
 
 	<div class="w-full input-group flex flex-row">
 		<div class="input-group-shim"><i class="fa-solid fa-search" /></div>
+		<!-- svelte-ignore a11y-autofocus -->
 		<input
 			class="input autocomplete bg-tertiary-50"
 			type="search"
 			bind:value={searchTerm}
 			name="autocomplete-search"
+			autofocus
 			autocomplete="off"
 			placeholder="Enter an artist..."
 			required
@@ -106,7 +108,11 @@
 			<h3 class="h3 text-center pt-5">{searchError}</h3>
 		{/if}
 	</div>
-	<ul class="w-9/12 bg-surface-200-700-token rounded-lg border-2 border-secondary-500 max-h-72 h-72 overflow-auto absolute search_results {searchClasses(autoCompleteOptions)}">
+	<ul
+		class="w-9/12 bg-surface-200-700-token rounded-lg border-2 border-secondary-500 max-h-72 h-72 overflow-auto absolute search_results {searchClasses(
+			autoCompleteOptions
+		)}"
+	>
 		{#each autoCompleteOptions as result}
 			<li class="py-2 px-2 hover:bg-surface-hover-token">
 				<a href="/artist/{result.value}" class="flex flex-row items-center">
