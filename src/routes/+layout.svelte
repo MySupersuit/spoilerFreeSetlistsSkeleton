@@ -18,6 +18,7 @@
 	} from '@skeletonlabs/skeleton';
 	import { AppBar } from '@skeletonlabs/skeleton';
 	import { storePopup } from '@skeletonlabs/skeleton';
+
 	storePopup.set({ computePosition, autoUpdate, offset, shift, flip, arrow });
 </script>
 
@@ -63,12 +64,26 @@
 				<a href="/"><strong class="text-xl">spoiler free setlist.fm</strong></a>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
+				<div class="dropdown block sm:hidden">
+					<button class="btn variant-filled justify-between">
+						<i class="fa-solid fa-bars"></i>
+					</button>
+					<nav class="mt-[2px] card variant-outline shadow-xl px-4 py-2 dropdown_content flex-col space-y-1 items-center">
+						<a href="/"><strong>home</strong></a>
+						<a href="/about"><strong>about</strong></a>
+						<a href="https://github.com/mysupersuit" target="_blank"
+							><div class="github_svg bg-surface-900-50-token" /></a
+						>
+					</nav>
+				</div>
 				<LightSwitch />
-				<a href="/"><strong>home</strong></a>
-				<a href="/about"><strong>about</strong></a>
-				<a href="https://github.com/mysupersuit" target="_blank"
-					><div class="github_svg bg-surface-900-50-token" /></a
-				>
+				<div class="hidden sm:flex space-x-2 flex-row items-center">
+					<a href="/"><strong>home</strong></a>
+					<a href="/about"><strong>about</strong></a>
+					<a href="https://github.com/mysupersuit" target="_blank"
+						><div class="github_svg bg-surface-900-50-token" /></a
+					>
+				</div>
 			</svelte:fragment>
 		</AppBar>
 	</svelte:fragment>
