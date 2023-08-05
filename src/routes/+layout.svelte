@@ -61,14 +61,14 @@
 	<svelte:fragment slot="header">
 		<AppBar background="bg-surface-200-700-token text-surface-700-200-token" class="px-4 py-2">
 			<svelte:fragment slot="lead">
-				<a href="/"><strong class="text-xl">spoiler free setlist.fm</strong></a>
+				<a href="/"><strong class="text-md sm:text-xl whitespace-nowrap">spoiler free setlist.fm</strong></a>
 			</svelte:fragment>
 			<svelte:fragment slot="trail">
 				<div class="dropdown block sm:hidden">
-					<button class="btn variant-filled justify-between">
+					<button class="btn btn-sm variant-filled justify-between">
 						<i class="fa-solid fa-bars"></i>
 					</button>
-					<nav class="mt-[2px] card variant-outline shadow-xl px-4 py-2 dropdown_content flex-col space-y-1 items-center">
+					<nav class="mt-1 card variant-outline shadow-xl px-4 py-2 dropdown_content flex-col space-y-1 items-center">
 						<a href="/"><strong>home</strong></a>
 						<a href="/about"><strong>about</strong></a>
 						<a href="https://github.com/mysupersuit" target="_blank"
