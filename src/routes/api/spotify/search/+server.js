@@ -8,8 +8,8 @@ export async function GET({ cookies, url }) {
 
 	let artist = url.searchParams.get('artist');
 	let song = url.searchParams.get('song');
-	let query = `${song} artist:${artist}`;
-	let spotifyUrl = spotifyBaseUrl(`search?q=${query}&type=track&limit=5`);
+	let query = `track:${song}%20artist:${artist}`;
+	let spotifyUrl = spotifyBaseUrl(`search?q=${query}&type=track&limit=8`);
 
 	let resp = await fetch(spotifyUrl, {
 		headers: {

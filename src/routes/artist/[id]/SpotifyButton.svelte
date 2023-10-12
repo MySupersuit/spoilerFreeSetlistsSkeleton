@@ -25,8 +25,8 @@
 	async function getTrackIds() {
 		let ids = [];
 		for (let song of setlist) {
-			let truncatedSong = song.split(' ').slice(0, 3).join(' ');
-			let sanitisedSong = truncatedSong.replace(/[^a-z0-9 ]/gi, '');
+			let truncatedSong = song.split(' ').slice(0, 6).join(' ');
+			let sanitisedSong = truncatedSong.replace(/[^a-z0-9 ]/gi, ' ');
 			let url = generateUrl(sanitisedSong, artist);
 			let resp = await fetch(baseUrl(url));
 			let json = await resp.json();
@@ -49,7 +49,7 @@
 			body
 		});
 		let json = await resp.json();
-		return {id: json.playlistId, url: json.url};
+		return { id: json.playlistId, url: json.url };
 	}
 
 	async function addTracksToPlaylist(trackIds, playlistId, playlistUrl) {
@@ -75,7 +75,7 @@
 				message: 'Playlist created!',
 				action: {
 					label: 'View in Spotify',
-					response: () => openInSpotify(playlistUrl),
+					response: () => openInSpotify(playlistUrl)
 				},
 				hoverable: true,
 				autohide: false,
@@ -95,7 +95,7 @@
 		}
 
 		let idsToAdd = await getTrackIds();
-		let {id: playlistId, url: playlistUrl} = await createEmptyPlaylist();
+		let { id: playlistId, url: playlistUrl } = await createEmptyPlaylist();
 
 		await addTracksToPlaylist(idsToAdd, playlistId, playlistUrl);
 	}
@@ -129,7 +129,6 @@
 		}
 		return classes;
 	}
-
 </script>
 
 <button
